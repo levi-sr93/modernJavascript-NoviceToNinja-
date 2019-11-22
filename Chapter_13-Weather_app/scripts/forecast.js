@@ -1,4 +1,4 @@
-const key = 'AccuWeather key goes here';
+const key = 'AccuWeather api key goes here';
 
 //Get Weather information
 const getWeather = async (cityId) => {
@@ -23,6 +23,5 @@ const getCity = async (city) => {
 
     return data[0]
 }
-
 
 

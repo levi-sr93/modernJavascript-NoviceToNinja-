@@ -13,7 +13,7 @@ const updateUI = data => {
 
 
     //Destructure properties
-    const {cityDetails, weather} = data
+    const { cityDetails, weather } = data
 
     //Updated details template
     details.innerHTML = `
@@ -29,7 +29,7 @@ const updateUI = data => {
 
     const iconSource = `./icons/${weather.WeatherIcon}.svg`
     icon.setAttribute('src', iconSource);
-    
+
 
     let timeSource = weather.IsDayTime ? './img/day.svg' : './img/night.svg';
     // if(weather.IsDayTime){
@@ -70,4 +70,13 @@ cityForm.addEventListener('submit', e => {
     updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err))
+
+    //set local storage
+    localStorage.setItem('city', city);
 })
+
+if (localStorage.getItem('city')) {
+    updateCity(localStorage.getItem('city'))
+        .then(data => updateUI(data))
+        .catch(err => console.log(err))
+}
