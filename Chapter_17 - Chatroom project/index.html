@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Series/movies Chatroom</title>
+</head>
+
+<body>
+    <!-- Container & title -->
+    <div class="container my-4">
+        <h1 class="my-4 text-center">Series/Movies chat</h1>
+
+        <!-- Update name form -->
+
+        <form class="new-name my-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Update name:</div>
+                </div>
+                <input type="text" id="name" class="form-control" required>
+                <div class="input-group-append">
+                    <input type="submit" class="btn" value="update">
+                </div>
+            </div>
+            <div class="update-mssg"></div>
+        </form>
+
+        <!-- Buttons for chatrooms -->
+        <div class="chat-rooms mb-3 text-center">
+            <div class="my-2">Choose a chatroom :</div>
+            <div class="show-name mb-3"></div>
+            <button class="btn" id="general">#general</button>
+            <button class="btn" id="series">#series</button>
+            <button class="btn" id="movies">#movies</button>
+            <button class="btn" id="documentary">#documentary</button>
+        </div>
+        <!-- Chat List /  window -->
+        <div class="chat-window">
+            <ul class="chat-list list-group"></ul>
+        </div>
+        <!-- New chat form -->
+        <form class="new-chat my-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Your message: </div>
+                </div>
+                <input type="text" id="message" class="form-control" required>
+                <div class="input-group-append">
+                    <input type="submit" class="btn" value="send">
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Datel fns para formatar as datas -->
+    <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "firebase key here",
+            authDomain: "udemy-modern-javascript-aee2f.firebaseapp.com",
+            databaseURL: "https://udemy-modern-javascript-aee2f.firebaseio.com",
+            projectId: "udemy-modern-javascript-aee2f",
+            storageBucket: "udemy-modern-javascript-aee2f.appspot.com",
+            messagingSenderId: "xxxx",
+            appId: "xxxx",
+            measurementId: "xxxx"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        const db = firebase.firestore();
+    </script>
+
+    <script src="./scripts/chat.js"></script>
+    <script src="./scripts/ui.js"></script>
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>
